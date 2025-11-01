@@ -105,10 +105,10 @@ console.log(!(true));       // false → NOT operator inverts the value
 // var hello = function() { console.log(“Hi”) }
 
 
-hello()   // hello is not a function
-var hello = function () {
-    console.log("Hi");          
-}
+// hello()   // hello is not a function
+// var hello = function () {
+//     console.log("Hi");
+// }
 
 
 // What gets hoisted?
@@ -117,5 +117,141 @@ var hello = function () {
 // What does not get hoisted fully?
 // -> Variables declared with 'let' and 'const' are not hoisted properly — 
 // they exist in the Temporal Dead Zone and give an error if accessed before initialization.
- 
+
+
+
+
+
+
+
+
+
+// 3. Conditional Operators (if, else, else-if, ternary, switch)
+
+// a. Take input using prompt for age.
+// If age > 18 → log “Adult”
+// .
+// Else → log “Minor”
+
+let inputAge = parseInt(prompt("Enter your age"));
+
+if (inputAge > 18) {
+    console.log("Adult");
+}
+
+else {
+    console.log("Minor");
+}
+
+
+
+// b. Write a program:
+// If marks >= 90 → “A grade”
+// Else if marks >= 75 → “B grade”
+// Else if marks >= 50 → “C grade”
+// Else → “Fail”
+
+
+let marks = 75;
+
+if (marks >= 90) {
+    console.log("A grade");
+}
+
+else if (marks >= 75) {
+    console.log("B grade");
+}
+
+else if (marks >= 50) {
+    console.log("C grade");
+}
+
+else {
+    console.log("Fail");
+}
+
+
+
+// c. Create a variable city = “Bhopal”
+// If city is “Bhopal” → log “MP”
+// Else if city is “Delhi” → log “Capital”
+// Else → log “Unknown City”
+
+let city = "Bhopal";
+
+if (city === "Bhopal") {
+    console.log("MP");
+}
+
+else if (city === "Delhi") {
+    console.log("Capital");
+}
+
+else {
+    console.log("Unknown City");
+}
+
+
+
+
+// d. Use ternary operator:
+// Let score = 40.
+// If score > 35 → “Pass” else “Fail” using a ternary.
+
+let score = 40;
+
+let evalScore = (score > 35 ? "Pass" : "Fail");
+
+console.log(evalScore);
+
+
+// e. Convert this if-else into a ternary:
+// if (temperature > 30) { “Hot” } else { “Pleasant” }
+
+let temp = 40;
+
+let measureTemp = temp > 30 ? "Hot" : "Pleasant";
+
+console.log(measureTemp);
+
+
+
+// f. Write a switch case:
+// Take day number (1 to 7).
+// Print the day name.
+// Default case: “Invalid Day”
+
+switch (2) {
+    case 1: console.log("Monday")
+        break
+    case 2: console.log("Tuesday");
+        break
+    case 3: console.log("Wednesday");
+        break
+    case 4: console.log("Thursday");
+        break
+    case 5: console.log("Friday");
+        break
+    case 6: console.log("Saturday");
+        break
+    case 7: console.log("Sunday");
+        break
+    default: console.log("Invalid Day");
+}
+
+// g. Using logical operators in condition:
+// If age > 18 and country == “India” → log “Eligible for Vote”
+
+
+let age1 = 20;
+let country = "India";
+
+if (age1 > 18 && country == "India") {
+    console.log("Eligible for Vote");
+}
+
+else {
+    console.log("Not Eligible for Vote");
+}
+
 
