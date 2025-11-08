@@ -1,257 +1,328 @@
-// Assignment - 29 Oct
-
-// 1. Basic Operators (Arithmetic, Assignment, Increment, Decrement, Comparison, Logical, Bitwise)
-
-// a. Create two numbers a = 10 and b = 3.
-// Perform and log: a + b, a - b, a * b, a / b, a % b.
-
-let a = 10;
-let b = 3;
-
-console.log(a + b);    // 13
-console.log(a - b);    // 7
-console.log(a * b);    // 30
-console.log(a % b);    // 1
+// =========================================================
+// 🌱 LEVEL 1 – PURE BEGINNER PRACTICE
+// =========================================================
 
 
-// b. Write: let x = 5; x = x + 3;
-// Now rewrite the same using +=.
-// Do the same for -=, *=, /=.
-
-let x = 5;
-x += 3;
-x -= 3;
-x *= 3;
-x /= 3;
-
-// x = 5
-
-
-// c. let count = 5;
-// Use count++ and log value before and after.
-// Repeat for count–.
-
-let count = 5;
-console.log(count);   // 5
-count++
-console.log(count);   // 6
-
-count--
-console.log(count);   // 5
-
-
-// d. Compare two values: 5 == “5” and 5 === “5”
-// .
-// Observe difference.
-
-// -> == only checks the digit or value which is so it is giveing true.
-
-// -> === checks the value as well as data type also so it returns false because 5 is a number and "5" is a string.
-
-
-// e. Check if 10 is greater than 5, less than 20, and equal to 10.
-
-console.log(10 > 5);
-console.log(10 < 20);
-console.log(10 === 10);
-
-
-// f. Try logical AND and OR:
-// true && false
-// true || false
-// !(true)
-
-
-console.log(true && false); // false → both must be true for AND
-console.log(true || false); // true  → only one needs to be true for OR
-console.log(!(true));       // false → NOT operator inverts the value
-
-
-
-
-// g. Predict the result of:
-
-// (5 > 3 && 10 > 8),     // true
-// (5 > 3 || 10 < 8)      // true
-
-
-
-// h. Bitwise (light intro):
-// Evaluate 5 & 1 and 5 | 1.
-// Write result and your observation (no deep explanation needed now).
-
-
-
-
-// 2. Variable Hoisting in JavaScript
-
-// a. Predict output of:
-// console.log(a);        // Undefined
-// var a = 10
-
-
-// b. Predict output of:
-// console.log(b);      // referencecError : cannot access b abfore initialization.
-// let b = 10
-
-
-// c. Predict output of:
-// test();
-// function test() { console.log("Hello") }     // "Hello"
-
-
-// d. Try writing a function expression before initialization and call it:
-// hello()
-// var hello = function() { console.log(“Hi”) }
-
-
-// hello()   // hello is not a function
-// var hello = function () {
-//     console.log("Hi");
-// }
-
-
-// What gets hoisted?
-// -> Variables declared with 'var' and all function declarations are hoisted.
-
-// What does not get hoisted fully?
-// -> Variables declared with 'let' and 'const' are not hoisted properly — 
-// they exist in the Temporal Dead Zone and give an error if accessed before initialization.
-
-
-
-
-
-
-
-
-
-// 3. Conditional Operators (if, else, else-if, ternary, switch)
-
-// a. Take input using prompt for age.
-// If age > 18 → log “Adult”
-// .
-// Else → log “Minor”
-
-let inputAge = parseInt(prompt("Enter your age"));
-
-if (inputAge > 18) {
-    console.log("Adult");
+// 1. Print numbers from 1 to 100  
+for (let i = 1; i <= 100; i++) {
+  console.log(i);
 }
 
+
+// 2. Print only even numbers from 1 to 20  
+for (let i = 1; i <= 20; i++) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+}
+
+
+// 3. Print numbers from 10 to 1  
+for (let i = 10; i >= 1; i--) {
+  console.log(i);
+}
+
+
+// 4. Print the word "Yes" 5 times  
+for (let i = 1; i <= 5; i++) {
+  console.log("Yes");
+}
+
+
+// 5. Print whether numbers from 1 to 10 are even or odd  
+for (let i = 1; i <= 10; i++) {
+  if (i % 2 === 0) console.log(`${i} is an Even number`);
+  else console.log(`${i} is an Odd number`);
+}
+
+
+// 6. Ask the user for a number and say if it's positive or negative  
+let inputNum = prompt("Enter your number");
+
+if (inputNum === null) {
+  alert("You pressed the cancel button");
+} 
+else if (inputNum.trim() === "") {
+  alert("Please enter a number");
+} 
 else {
-    console.log("Minor");
+  let num = parseInt(inputNum);
+
+  if (isNaN(num)) {
+    alert("Please enter a valid number");
+  } 
+  else {
+    if (num >= 0) console.log(`${num} is a positive number`);
+    else console.log(`${num} is a negative number`);
+  }
 }
 
 
+// 7. Ask user's age and check if eligible to vote  
+let inputAge = prompt("Enter your age");
 
-// b. Write a program:
-// If marks >= 90 → “A grade”
-// Else if marks >= 75 → “B grade”
-// Else if marks >= 50 → “C grade”
-// Else → “Fail”
-
-
-let marks = 75;
-
-if (marks >= 90) {
-    console.log("A grade");
+if (inputAge === null) {
+  console.error("You pressed cancel button");
 }
-
-else if (marks >= 75) {
-    console.log("B grade");
+else if (inputAge.trim() === "") {
+  alert("Please enter your age");
 }
-
-else if (marks >= 50) {
-    console.log("C grade");
-}
-
 else {
-    console.log("Fail");
+  let ageConvertNum = +(inputAge);
+
+  if (isNaN(ageConvertNum)) {
+    alert("Please enter a valid age");
+  }
+  else {
+    if (ageConvertNum >= 18) console.log("Eligible to vote");
+    else console.log("Not eligible to vote");
+  }
 }
 
 
-
-// c. Create a variable city = “Bhopal”
-// If city is “Bhopal” → log “MP”
-// Else if city is “Delhi” → log “Capital”
-// Else → log “Unknown City”
-
-let city = "Bhopal";
-
-if (city === "Bhopal") {
-    console.log("MP");
+// 8. Print multiplication table of 5  
+for (let i = 1; i <= 10; i++) {
+  console.log(`5 x ${i} = ${5 * i}`);
 }
 
-else if (city === "Delhi") {
-    console.log("Capital");
+
+// 9. Count how many numbers between 1 and 15 are greater than 8  
+let count = 0;
+
+for (let i = 1; i <= 15; i++) {
+  if (i > 8) {
+    count++;
+  }
 }
 
+console.log(`Numbers greater than 8: ${count}`);
+
+
+// 10. Ask user for password and print access status  
+let correctPass = "harsh12";
+let inputPass = prompt("Enter your password");
+
+if (inputPass === null) {
+  console.error("You pressed cancel button");
+}
+else if (inputPass.trim() === "") {
+  alert("Please enter your password");
+}
 else {
-    console.log("Unknown City");
+  if (inputPass === correctPass) console.log("Access granted");
+  else console.log("Access denied");
 }
 
 
+// =========================================================
+// ⚙️ LEVEL 2 – SLIGHTLY TOUGHER BUT LOGICAL
+// =========================================================
 
 
-// d. Use ternary operator:
-// Let score = 40.
-// If score > 35 → “Pass” else “Fail” using a ternary.
+// 11. Allow only 3 attempts to enter correct password  
+let correctPassword = "harsh1234";
+let attempts = 0;
+let maxAttempts = 3;
 
-let score = 40;
+while (attempts < maxAttempts) {
+  let inputPassword = prompt("Enter your password");
+  attempts++;
 
-let evalScore = (score > 35 ? "Pass" : "Fail");
-
-console.log(evalScore);
-
-
-// e. Convert this if-else into a ternary:
-// if (temperature > 30) { “Hot” } else { “Pleasant” }
-
-let temp = 40;
-
-let measureTemp = temp > 30 ? "Hot" : "Pleasant";
-
-console.log(measureTemp);
-
-
-
-// f. Write a switch case:
-// Take day number (1 to 7).
-// Print the day name.
-// Default case: “Invalid Day”
-
-switch (2) {
-    case 1: console.log("Monday")
-        break
-    case 2: console.log("Tuesday");
-        break
-    case 3: console.log("Wednesday");
-        break
-    case 4: console.log("Thursday");
-        break
-    case 5: console.log("Friday");
-        break
-    case 6: console.log("Saturday");
-        break
-    case 7: console.log("Sunday");
-        break
-    default: console.log("Invalid Day");
+  if (inputPassword === null) {
+    console.error("You pressed cancel button");
+    break;
+  }
+  else if (inputPassword.trim() === "") {
+    alert("Please enter something");
+    alert(`Attempts left: ${maxAttempts - attempts}`);
+    continue;
+  }
+  else if (inputPassword.trim() === correctPassword) {
+    console.log("Access granted");
+    break;
+  }
+  else {
+    alert(`Wrong password! Attempts left: ${maxAttempts - attempts}`);
+    continue;
+  }
 }
 
-// g. Using logical operators in condition:
-// If age > 18 and country == “India” → log “Eligible for Vote”
-
-
-let age1 = 20;
-let country = "India";
-
-if (age1 > 18 && country == "India") {
-    console.log("Eligible for Vote");
+if (attempts === 3) {
+  console.log("Account locked");
 }
 
+
+// 12. Ask user for words until they type “stop”. Count how many times they typed “yes”  
+let stopWord = "stop";
+let countYes = 0;
+
+let inputWord = prompt("Enter your word");
+
+if (inputWord === null) {
+  console.error("You pressed cancel");
+}
 else {
-    console.log("Not Eligible for Vote");
+  while (inputWord.toLowerCase() !== stopWord.toLowerCase()) {
+    if (inputWord.trim() === "") {
+      alert("Please enter something");
+    }
+    else if (inputWord.trim().toLowerCase() === "yes") {
+      countYes++;
+    }
+
+    inputWord = prompt("Enter your word");
+
+    if (inputWord === null) {
+      console.error("You pressed cancel");
+      break;
+    }
+  }
+
+  console.log(`You typed "Yes" ${countYes} times`);
 }
 
 
+// 13. Print numbers divisible by 7 from 1 to 50  
+for (let i = 1; i <= 50; i++) {
+  if (i % 7 === 0) {
+    console.log(i);
+  }
+}
+
+
+// 14. Sum of all odd numbers from 1 to 30  
+let sumOdd = 0;
+
+for (let i = 1; i <= 30; i++) {
+  if (i % 2 === 1) {
+    sumOdd += i;
+  }
+}
+
+console.log(`Sum of all odd numbers: ${sumOdd}`);
+
+
+// 15. Keep asking for a number until user enters even  
+let inputEvenNum = prompt("Enter your number");
+
+while (true) {
+  if (inputEvenNum === null) {
+    console.error("You pressed cancel button");
+    break;
+  }
+  else if (inputEvenNum.trim() === "") {
+    alert("Please enter something");
+  }
+  else if (isNaN(inputEvenNum)) {
+    alert("Please enter a valid number");
+  }
+  else if (+inputEvenNum % 2 === 0) {
+    console.log(`Great! Even number entered: ${inputEvenNum}`);
+    break;
+  }
+  else {
+    alert(`Try again! You entered an odd number: "${inputEvenNum}"`);
+  }
+
+  inputEvenNum = prompt("Enter your number");
+}
+
+
+// 16. Print numbers between two user inputs  
+let inputNum1 = prompt("Enter first number");
+let inputNum2 = prompt("Enter second number");
+
+if (inputNum1 === null || inputNum2 === null) {
+  console.error("You pressed cancel");
+}
+else if (inputNum1.trim() === "" || inputNum2.trim() === "") {
+  alert("Please enter something");
+}
+else if (isNaN(inputNum1) || isNaN(inputNum2)) {
+  alert("Please enter valid numbers");
+}
+else if (+inputNum1 >= +inputNum2) {
+  alert("First number should not be bigger than second number");
+}
+else {
+  for (let i = +inputNum1; i <= +inputNum2; i++) {
+    console.log(i);
+  }
+}
+
+
+// 17. Print only first 3 odd numbers from 1 to 20  
+let counterFor3 = 0;
+
+for (let i = 1; i <= 20; i++) {
+  if (counterFor3 === 3) {
+    break;
+  }
+
+  if (i % 2 === 1) {
+    console.log(i);
+    counterFor3++;
+  }
+}
+
+
+// 18. Ask user 5 numbers. Count how many are positive  
+let countPosNeg = 0;
+let positiveCount = 0;
+
+while (countPosNeg < 5) {
+  let inputNumber = prompt("Enter your number");
+  countPosNeg++;
+
+  if (inputNumber === null) {
+    console.log("You pressed cancel");
+    break;
+  }
+  else if (inputNumber.trim() === "") {
+    alert("Please enter something");
+  }
+  else if (isNaN(inputNumber)) {
+    alert("Please enter a valid number");
+  }
+  else if (+inputNumber < 0) {
+    console.log(`${inputNumber} is a negative number`);
+  }
+  else {
+    console.log(`${inputNumber} is a positive number`);
+    positiveCount++;
+  }
+}
+
+console.log(`Total positive numbers are: ${positiveCount}`);
+
+
+// 19. ATM Simulator – Allow 3 withdrawals  
+let amount = 1000;
+let startWithdrawal = 0;
+let maxWithdrawal = 3;
+
+while (startWithdrawal < maxWithdrawal) {
+  let withdrawalAmount = prompt("Enter withdrawal amount");
+
+  if (withdrawalAmount === null) {
+    console.error("You pressed cancel button");
+    break;
+  }
+  else if (withdrawalAmount.trim() === "") {
+    alert("Please enter something");
+    continue;
+  }
+  else if (isNaN(withdrawalAmount)) {
+    alert("Please enter a valid number");
+    continue;
+  }
+  else if (+withdrawalAmount <= amount) {
+    console.log(`Amount withdrawn: ₹${withdrawalAmount}, Balance left: ₹${amount - withdrawalAmount}`);
+    amount -= withdrawalAmount;
+    startWithdrawal++;
+  }
+  else {
+    console.log("Insufficient balance");
+    break;
+  }
+}
